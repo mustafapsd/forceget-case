@@ -12,10 +12,16 @@
 
   <div class="offer-list">
     @for (column of offerListColumns; track $index) {
-    <div class="header column">{{ column | titlecase }}</div>
-    } @if (offerService.offers$ | async; as offers) { @for (offer of offers;
-    track $index) { @for (column of offerListColumns; track $index) {
-    <div class="column">{{ offer[column] }}</div>
-    } } }
+      <div class="header column">{{ column | titlecase }}</div>
+    }
+    @if (offerService.offers$ | async; as offers) {
+      @for (offer of offers; track $index) {
+        @for (column of offerListColumns; track $index) {
+          <div class="column">{{ offer[column] }}</div>
+        }
+      } @empty {
+        <div class="empty">No offers found</div>
+      }
+    }
   </div>
 </div>

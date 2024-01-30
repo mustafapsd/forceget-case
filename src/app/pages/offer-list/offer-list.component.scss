@@ -17,6 +17,19 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1.5fr repeat(6, 1fr);
 
+    .empty {
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      grid-column-start: 1;
+      grid-column-end: 11;
+      border: 1px solid #ccc;
+    }
+
 
     .column {
       display: flex;
