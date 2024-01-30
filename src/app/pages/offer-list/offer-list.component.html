@@ -1,0 +1,21 @@
+<div class="offer-list-component">
+  <div class="header-row">
+    <h2 class="title">Offer List</h2>
+
+    <div class="actions">
+      <button nz-button nzType="primary" nzSize="large" routerLink="/new-offer">
+        <i nz-icon nzType="plus"></i>
+        New Offer
+      </button>
+    </div>
+  </div>
+
+  <div class="offer-list">
+    @for (column of offerListColumns; track $index) {
+    <div class="header column">{{ column | titlecase }}</div>
+    } @if (offerService.offers$ | async; as offers) { @for (offer of offers;
+    track $index) { @for (column of offerListColumns; track $index) {
+    <div class="column">{{ offer[column] }}</div>
+    } } }
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.offer-component {
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  .unit-select {
+    width: 7.5rem;
+  }
+
+  nz-form-item {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    nz-form-label {
+      text-align: left;
+    }
+  }
+
+  .send-button {
+    grid-column-start: 2;
+    width: 50%;
+    justify-self: end;
+  }
+}

@@ -1,0 +1,188 @@
+<div class="offer-component">
+  <h2 class="title">Get an Offer</h2>
+
+  <form nz-form [formGroup]="offerForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label
+        nzFor="mode"
+        nzTooltipTitle="The transportation mode of your package"
+        nzRequired
+      >
+        Mode
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['mode']"
+        nzErrorTip="Please input your mode!"
+      >
+        <nz-select formControlName="mode">
+          <nz-option nzLabel="LCL" nzValue="LCL"></nz-option>
+          <nz-option nzLabel="FCL" nzValue="FCL"></nz-option>
+          <nz-option nzLabel="AIR" nzValue="AIR"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="movementType"
+        nzTooltipTitle="The movement type of your package"
+        nzRequired
+      >
+        Movement Type
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['movementType']"
+        nzErrorTip="Please input your movement type!"
+      >
+        <nz-select formControlName="movementType">
+          <nz-option nzLabel="Door To Door" nzValue="DoorToDoor"></nz-option>
+          <nz-option nzLabel="Door To Port" nzValue="DoorToPort"></nz-option>
+          <nz-option nzLabel="Port To Door" nzValue="PortToDoor"></nz-option>
+          <nz-option nzLabel="Port To Port" nzValue="PortToPort"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="incoterms"
+        nzTooltipTitle="The incoterms of your package"
+        nzRequired
+      >
+        Incoterms
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['incoterms']"
+        nzErrorTip="Please input your incoterms!"
+      >
+        <nz-select formControlName="incoterms">
+          <nz-option nzLabel="DDP" nzValue="DDP"></nz-option>
+          <nz-option nzLabel="DAT" nzValue="DAT"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="city"
+        nzTooltipTitle="The city of your package"
+        nzRequired
+      >
+        City
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['city']"
+        nzErrorTip="Please input your city!"
+      >
+        <nz-select formControlName="city" nzShowSearch>
+          <nz-option-group nzLabel="USA">
+            <nz-option nzLabel="New York" nzValue="NewYork"></nz-option>
+            <nz-option nzLabel="Los Angeles" nzValue="LosAngeles"></nz-option>
+            <nz-option nzLabel="Miami" nzValue="Miami"></nz-option>
+            <nz-option nzLabel="Minnesota" nzValue="Minnesota"></nz-option>
+          </nz-option-group>
+          <nz-option-group nzLabel="China">
+            <nz-option nzLabel="Beijing" nzValue="Beijing"></nz-option>
+            <nz-option nzLabel="Shanghai" nzValue="Shanghai"></nz-option>
+          </nz-option-group>
+          <nz-option-group nzLabel="Turkey">
+            <nz-option nzLabel="Istanbul" nzValue="Istanbul"></nz-option>
+            <nz-option nzLabel="Izmir" nzValue="Izmir"></nz-option>
+          </nz-option-group>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="packageType"
+        nzTooltipTitle="The type of your package"
+        nzRequired
+      >
+        Package Type
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['packageType']"
+        nzErrorTip="Please input your package type!"
+      >
+        <nz-select formControlName="packageType">
+          <nz-option nzLabel="Carton" nzValue="Carton"></nz-option>
+          <nz-option nzLabel="Pallet" nzValue="Pallet"></nz-option>
+          <nz-option nzLabel="Box" nzValue="Box"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="packageSize"
+        nzTooltipTitle="The size of your package"
+        nzRequired
+      >
+        Package Size
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['packageSize']"
+        nzErrorTip="Please input your package size!"
+      >
+        <nz-input-group [nzAddOnAfter]="unitSelect">
+          <ng-template #unitSelect>
+            <nz-select formControlName="packageUnit" class="unit-select">
+              <nz-option nzLabel="cm" nzValue="CM"></nz-option>
+              <nz-option nzLabel="in" nzValue="IN"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input formControlName="packageSize" type="number" nz-input />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="packageWeight"
+        nzTooltipTitle="The weight of your package"
+        nzRequired
+      >
+        Package Weight
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['packageWeight']"
+        nzErrorTip="Please input your package weight!"
+      >
+        <nz-input-group [nzAddOnAfter]="weightUnitSelect">
+          <ng-template #weightUnitSelect>
+            <nz-select formControlName="weightUnit" class="unit-select">
+              <nz-option nzLabel="kg" nzValue="KG"></nz-option>
+              <nz-option nzLabel="lb" nzValue="LB"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input formControlName="packageWeight" type="number" nz-input />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzFor="currency"
+        nzTooltipTitle="The currency of your package"
+        nzRequired
+      >
+        Currency
+      </nz-form-label>
+      <nz-form-control
+        [nzValidateStatus]="offerForm.controls['currency']"
+        nzErrorTip="Please input your currency!"
+      >
+        <nz-select formControlName="currency">
+          <nz-option nzLabel="USD" nzValue="USD"></nz-option>
+          <nz-option nzLabel="CNY" nzValue="CNY"></nz-option>
+          <nz-option nzLabel="TRY" nzValue="TRY"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <button class="send-button" nz-button nzType="primary">Send</button>
+    </nz-form-item>
+  </form>
+</div>
